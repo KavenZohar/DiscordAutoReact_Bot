@@ -1,8 +1,10 @@
-import config from "./config.json" assert { type: 'json' };
+import { createRequire } from 'module';
 import { Client, GatewayIntentBits, Partials } from "discord.js";
 import { Word } from "./words/word.js";
 import { Messages } from "./words/messages.js";
 
+const require = createRequire(import.meta.url);
+const config = require('./config.json');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
